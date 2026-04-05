@@ -2,6 +2,21 @@
 
 A Python command-line tool that reads the meeting schedule (CSV) and generates a WhatsApp reminder message in Roger's format.
 
+---
+
+## How to Run
+
+1. Clone the repo
+2. Place the schedule CSV in the `data/` folder
+3. Run:
+```bash
+python3 main.py
+```
+
+---
+
+## Project Structure
+```
 meeting-reminder/
 ├── data/
 │   └── UWB Students - Schedule.csv
@@ -14,6 +29,9 @@ meeting-reminder/
 ├── test_models.py
 ├── test_loader.py
 └── test_formatter.py
+```
+
+---
 
 ## Status
 
