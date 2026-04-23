@@ -3,18 +3,18 @@
 from datetime import date, timedelta
 from meeting.models import Meeting
 
-def find_upcoming_meeting(meetings: list[Meeting], days_ahead: int = 2) -> Meeting | None:
-    """
-    Looks through the meeting list and returns the meeting
-    that falls on (today + days_ahead).
-    Returns None if no meeting is found, or if it is canceled.
-    """
-    target_date = date.today() + timedelta(days=days_ahead)
+def get_this_saturday() -> date:
+    today = date.today()
+    days_until_saturday = (5 - today.weekday()) % 7
+    return today + timedelta(days=days_until_saturday)
+
+def find_upcoming_meeting(meetings: list[Meeting]) -> Meeting | None:
+    target_date = get_this_saturday()
 
     for meeting in meetings:
         if meeting.date == target_date:
             if meeting.is_canceled():
-                return None  # meeting exists but is canceled
-            return meeting   # found a real meeting!
+                return None
+            return meeting
 
-    return None  # no row matched the target date at all
+    return None

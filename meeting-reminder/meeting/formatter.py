@@ -9,7 +9,6 @@ def format_reminder(meeting: Meeting) -> str:
     message = (
         f"Saints, the meeting this Saturday will be at {meeting.family}'s home:\n"
         f"{meeting.address}\n"
-        f"At 5:30pm as usual.\n"
-        f"Please remember to check the online schedule we have as well."
+        f"At 6:00pm as usual.\n"
     )
     return message
